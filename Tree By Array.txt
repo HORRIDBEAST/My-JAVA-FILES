@@ -1,0 +1,46 @@
+import java.util.*;
+public class Tree {
+    public static void main(String[] args) {
+        array_class obj = new array_class();
+        obj.Root("A");
+        obj.set_left("B",0);
+        obj.set_right("C",0);
+        obj.set_left("D",1);
+        obj.set_right("E",1);
+        obj.set_right("F",2);
+        //obj.set_right("G",2);
+        obj.print_tree();
+    }
+}
+class array_class{
+    static int root=0;
+    static String[] str=new String[10];
+    public void Root(String key){str[0]=key;}
+    public void set_left(String key ,int root){
+        int t=(2*root)+1;
+        if(str[root]==null){
+            System.out.println("ROOT IS EMPTY , DONT TRAVERESE BUDDY");
+        }
+        else{
+            str[t]=key;
+        }
+    }
+    public void set_right(String key ,int root){
+        int t=(2*root)+2;
+        if(str[root]==null){
+            System.out.println("ROOT IS EMPTY , DONT TRAVERESE BUDDY");
+        }
+        else{
+            str[t]=key;
+        }
+    }
+    public void print_tree(){
+        System.out.println("THE TREE REPRESENTATION IS AS FOLLOWS");
+        for(int i=0;i<10;i++){
+            if(str[i]!=null)
+                System.out.print(str[i]);
+            else
+                System.out.print("-");
+        }
+    }
+}
